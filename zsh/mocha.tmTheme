@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<plist version="1.0">
+<dict>
+    <key>name</key><string>Mocha</string>
+    <key>settings</key>
+    <array>
+        <dict>
+            <key>scope</key><string>comment</string>
+            <key>settings</key><dict><key>foreground</key><string>#585b70</string></dict></dict>
+        <dict>
+            <key>scope</key><string>keyword</string>
+            <key>settings</key><dict><key>foreground</key><string>#f5c2e7</string></dict></dict>
+        <dict>
+            <key>scope</key><string>string</string>
+            <key>settings</key><dict><key>foreground</key><string>#a6e3a1</string></dict></dict>
+        <dict>
+            <key>scope</key><string>number</string>
+            <key>settings</key><dict><key>foreground</key><string>#f9e2af</string></dict></dict>
+        <dict>
+            <key>scope</key><string>function</string>
+            <key>settings</key><dict><key>foreground</key><string>#89b4fa</string></dict></dict>
+        <dict>
+            <key>scope</key><string>type</string>
+            <key>settings</key><dict><key>foreground</key><string>#fab387</string></dict></dict>
+    </array>
+</dict>
+</plist>
+

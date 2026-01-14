@@ -16,6 +16,7 @@ vim.opt.cursorline = true                          -- Highlight current line
 vim.opt.wrap = false                               -- Don't wrap lines
 vim.opt.scrolloff = 10                             -- Keep 10 lines above/below cursor 
 vim.opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor
+vim.api.nvim_set_option("clipboard","unnamed")
 
 -- Indentation
 vim.opt.tabstop = 2                                -- Tab width
