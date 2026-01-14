@@ -5,5 +5,8 @@ alle mine .config og home/. files
 
 Setup notes:
 
-lag symlink for nvim setup
+NVIM
 ln -s ~/.files/nvim ~/.config/nvim
+
+ZSH
+ln -s ~/.files/zsh/.zshrc ~/.zshrc
