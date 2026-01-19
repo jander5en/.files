@@ -132,8 +132,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 ########################
 # Aliases
 ########################
-alias ll='ls -lh'
-alias la='ls -la'
+alias ll='ls -lh --color=auto'
+alias la='ls -la --color=auto'
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log --oneline --graph --decorate'
