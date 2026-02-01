@@ -6,13 +6,21 @@ alle mine .config og home/. files
 
 ## lightdm og i3
 
+//get latest stable i3 version
+/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2025.12.14_all.deb keyring.deb SHA256:2c816fbd12ea4d84811818aed0ce3a5da589be1afa30833eb32abc1e4fe6349e
+sudo apt install ./keyring.deb
+echo "deb [signed-by=/usr/share/keyrings/sur5r-keyring.gpg] http://debian.sur5r.net/i3/ $(grep '^VERSION_CODENAME=' /etc/os-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
+
 sudo apt update
 sudo apt install lightdm i3 i3status i3lock dmenu
+
 rm ~/.config/i3/config
 ln -s ~/.files/i3/config ~/.config/i3/config
 
 sudo apt remove ubuntu-desktop gnome-shell gdm3
 sudo apt autoremove
+
+feh --bg-scale ~/.files/i3/spacemarinereunion.png
 
 ## Install og setup for foretrukne apper
 ### bytt ut filemanager til thunar
