@@ -20,7 +20,7 @@ ln -s ~/.files/i3/config ~/.config/i3/config
 sudo apt remove ubuntu-desktop gnome-shell gdm3
 sudo apt autoremove
 
-feh --bg-scale ~/.files/i3/spacemarinereunion.png
+feh --bg-scale ~/.files/i3/gnu.png
 
 ## Install og setup for foretrukne apper
 ### bytt ut filemanager til thunar
