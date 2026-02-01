@@ -1,15 +1,23 @@
 # .files
 alle mine .config og home/. files
 
-
-
 ## Setup notes ubuntu m/x11:
 //lag logikk som leser systemet og gjør riktige innstillinger ettersom hva som er der. ubuntu/arch/fedora/mac etc
+
+## lightdm og i3
+
+sudo apt update
+sudo apt install lightdm i3 i3status i3lock dmenu
+rm ~/.config/i3/config
+ln -s ~/.files/i3/config ~/.config/i3/config
+
+sudo apt remove ubuntu-desktop gnome-shell gdm3
+sudo apt autoremove
 
 ## Install og setup for foretrukne apper
 ### bytt ut filemanager til thunar
 sudo apt remove nautilus
-sudo apt install thunar
+sudo apt install feh picom alacritty thunar
 
 ### Installere vivaldi
 wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor | sudo dd of=/usr/share/keyrings/vivaldi-browser.gpg
