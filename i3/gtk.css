@@ -1,0 +1,20 @@
+/* Make terminal scrollbars transparent / background-matching */
+
+/* Scrollbar trough (background) */
+scrollbar trough {
+    background-color: rgba(30,30,46,0.9);
+    border: none;
+}
+
+/* Scrollbar slider (the handle) 
+scrollbar slider {
+    background-color: rgba(203, 166, 247, 0.4); 
+    border-radius: 8px;
+}
+*/
+
+/* Hover 
+scrollbar slider:hover {
+    background-color: rgba(203, 166, 247, 0.6);
+}
+*/
