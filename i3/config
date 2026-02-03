@@ -63,7 +63,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use picom to manage the visual border, container rounding opacity etc
-exec --no-startup-id picom
+exec_always --no-startup-id sh -c 'killall picom; picom --config ~/.config/picom/picom.conf &'
+
+# set wallpaper with feh
+exec --no-startup-id feh --bg-scale ~/.files/i3/gnu.png
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -71,6 +74,15 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Print fullscreen
+bindsym Print exec --no-startup-id maim ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
+# Print Selection
+bindsym Shift+Print exec --no-startup-id maim -s ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
+# Print Active window
+bindsym $mod+Print exec --no-startup-id maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
+# Print to clipboard
+bindsym Ctrl+Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -139,6 +151,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -218,7 +231,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         position top
-        status_command i3status ~/.config/i3status/config
+        status_command i3status -c ~/.config/i3/i3status.conf
         colors {
           background $base
           statusline $text

@@ -87,15 +87,15 @@ zle -N zle-line-init
 ########################
 # Powerline prompt (2 lines)
 ########################
-RIGHT_ARROW=""
+RIGHT_ARROW="☭"
 
-PROMPT='%F{$FG_BLUE}%n@%m%f %F{$BG_ALT}'"$RIGHT_ARROW"'%f %F{$FG_CYAN}%~%f ${GIT_INFO}
+PROMPT='%F{$FG_BLUE}%n@%m%f %F{$FG_CYAN}%~%f ${GIT_INFO}
 ${VI_MODE_PROMPT} %F{$FG_GREEN}❯ %f'
 
 function precmd {
   vcs_info
   if [[ -n $vcs_info_msg_0_ ]]; then
-    GIT_INFO="%F{$BG_ALT}${RIGHT_ARROW}%f %F{$FG_MAGENTA}${vcs_info_msg_0_}%f $(git_status_symbol)"
+    GIT_INFO="%F{$FG_RED}${RIGHT_ARROW}%f %F{$FG_MAGENTA}${vcs_info_msg_0_}%f $(git_status_symbol)"
   else
     GIT_INFO=""
   fi
@@ -134,16 +134,18 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 ########################
 alias ll='ls -lh --color=auto'
 alias la='ls -la --color=auto'
+alias ls='ls --color=auto'
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log --oneline --graph --decorate'
 alias vim='nvim'
 
-# Enable fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+# For fuzzy completion and keybindings
+#source <(fzf --zsh)
 
 ############################################################
 # End of file
 ############################################################
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

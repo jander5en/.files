@@ -35,7 +35,7 @@ feh --bg-scale /home/${USER}/.files/i3/gnu.png
 ## Install og setup for foretrukne apper
 ### bytt ut filemanager til thunar
 sudo apt remove nautilus
-sudo apt install feh picom alacritty thunar
+sudo apt install feh picom alacritty thunar maim
 
 ln -s /home/${USER}/.files/i3 /home/${USER}/.config/i3
 ln -s /home/${USER}/.files/picom /home/${USER}/.config/picom
