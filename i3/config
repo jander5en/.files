@@ -63,7 +63,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use picom to manage the visual border, container rounding opacity etc
-exec --no-startup-id sh -c 'pgrep picom >/dev/null || picom --config ~/.config/picom/picom.conf'
+#exec --no-startup-id sh -c 'pgrep picom >/dev/null || picom --config ~/.config/picom/picom.conf'
 
 # set wallpaper with feh
 exec --no-startup-id feh --bg-scale ~/.files/i3/gnu.png
@@ -230,6 +230,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        mode hide
+        hidden_state hide
+        modifier $mod
         position top
         status_command i3status -c ~/.config/i3/i3status.conf
         colors {

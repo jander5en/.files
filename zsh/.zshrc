@@ -148,6 +148,14 @@ vf () {
     vim "$target"
   fi
 }
+cf () {
+  local target=$(fzf --ansi --preview 'head -10 {}' | cut -f1)
+
+  if [ -n "$target" ]; then
+    local dir=$(dirname "$target")
+    cd "$dir"
+  fi
+}
 
 # For fuzzy completion and keybindings
 source <($HOME/.fzf/bin/fzf --zsh)
