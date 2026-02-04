@@ -140,12 +140,24 @@ alias gd='git diff'
 alias gl='git log --oneline --graph --decorate'
 alias vim='nvim'
 
+#function to open fzf serch result in nvim
+vf () {
+  local target=$(fzf --ansi --preview 'head -10 {}' | cut -f1)
+
+  if [ -n "$target" ]; then
+    vim "$target"
+  fi
+}
+
 # For fuzzy completion and keybindings
-#source <(fzf --zsh)
+source <($HOME/.fzf/bin/fzf --zsh)
 
 ############################################################
 # End of file
 ############################################################
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+## centered fzf window in tmux
+export FZF_TMUX=1
+export FZF_TMUX_OPTS='-p 80%,60%'
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -49,6 +49,11 @@ sudo apt install vivaldi-stable
 optional: remove firefox
 sudo apt remove firefox
 
+## tmux
+sudo apt install tmux
+rm /home/${USER}/.tmux.conf
+ln -s .files/tmux/.tmux.conf .tmux.conf
+
 ### NVIM
 
 ln -s /home/${USER}/.files/nvim /home/${USER}/.config/nvim

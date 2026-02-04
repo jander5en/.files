@@ -63,7 +63,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use picom to manage the visual border, container rounding opacity etc
-exec_always --no-startup-id sh -c 'killall picom; picom --config ~/.config/picom/picom.conf &'
+exec --no-startup-id sh -c 'pgrep picom >/dev/null || picom --config ~/.config/picom/picom.conf'
 
 # set wallpaper with feh
 exec --no-startup-id feh --bg-scale ~/.files/i3/gnu.png
@@ -246,8 +246,8 @@ bar {
 
 ###### Custom settings
 # gaps between containers
-gaps inner 7
-gaps outer 3
+gaps inner 2
+gaps outer 1
 
 # If there is only one window, remove border
 smart_borders on
@@ -260,6 +260,6 @@ client.unfocused        $crust    $crust    $text     $crust
 client.urgent           $red      $red      $base     $red
 
 # No container headers
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 0
+default_floating_border pixel 0
 hide_edge_borders smart
