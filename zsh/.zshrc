@@ -139,7 +139,10 @@ alias gs='git status'
 alias gd='git diff'
 alias gl='git log --oneline --graph --decorate'
 alias vim='nvim'
-
+alias firefox='flatpak run org.mozilla.firefox &'
+alias gimp='flatpak run org.gimp.GIMP &'
+alias vivaldi='flatpak run com.vivaldi.Vivaldi &'
+alias thunderbird='flatpak run org.mozilla.Thunderbird &'
 #function to open fzf serch result in nvim
 vf () {
   local target=$(fzf --ansi --preview 'head -10 {}' | cut -f1)

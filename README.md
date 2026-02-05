@@ -1,6 +1,12 @@
 # .files
 alle mine .config og home/. files
 
+//COnsider the other tmux and workspace setup for tmux and i3 here: https://7rishi.io/articles/ubuntu_setup/
+sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install git curl make cmake vim htop tree openssh-server net-tools rasi flatpak
+
+
 ## Setup notes ubuntu m/x11:
 //lag logikk som leser systemet og gjør riktige innstillinger ettersom hva som er der. ubuntu/arch/fedora/mac etc
 
@@ -11,6 +17,7 @@ else
     mkdir /home/${USER}/.config
 fi
 
+
 ## lightdm og i3
 
 //get latest stable i3 version
@@ -20,7 +27,7 @@ echo "deb [signed-by=/usr/share/keyrings/sur5r-keyring.gpg] http://debian.sur5r.
 rm keyring.deb
 
 sudo apt update
-sudo apt install lightdm i3 i3status i3lock dmenu fonts-jetbrains-mono
+sudo apt install lightdm i3 i3status i3lock dmenu fonts-jetbrains-mono zsh
 
 rm -r /home/${USER}/.config/i3
 ln -s /home/${USER}/.files/i3 /home/${USER}/.config/i3
@@ -30,24 +37,23 @@ ln -s /home/${USER}/.files/i3/gtk.css /home/${USER}/.config/gtk-3.0/gtk.css
 sudo apt remove ubuntu-desktop gnome-shell gdm3
 sudo apt autoremove
 
-feh --bg-scale /home/${USER}/.files/i3/gnu.png
 
 ## Install og setup for foretrukne apper
-### bytt ut filemanager til thunar
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.mozilla.firefox
+flatpak install flathub org.gimp.GIMP
+flatpak install flathub com.vivaldi.Vivaldi
+flatpak install flathub org.mozilla.Thunderbird
+
+sudo apt install feh alacritty thunar maim xclip
+
+sudo reboot
 sudo apt remove nautilus
 sudo apt install feh picom alacritty thunar maim
 
 ln -s /home/${USER}/.files/i3 /home/${USER}/.config/i3
-ln -s /home/${USER}/.files/picom /home/${USER}/.config/picom
 
-### Installere vivaldi
-wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor | sudo dd of=/usr/share/keyrings/vivaldi-browser.gpg
-echo "deb [signed-by=/usr/share/keyrings/vivaldi-browser.gpg arch=$(dpkg --print-architecture)] https://repo.vivaldi.com/archive/deb/ stable main" | sudo dd of=/etc/apt/sources.list.d/vivaldi-archive.list
-sudo apt update
-sudo apt install vivaldi-stable
-
-optional: remove firefox
-sudo apt remove firefox
 
 ## tmux
 sudo apt install tmux
@@ -57,15 +63,11 @@ ln -s .files/tmux/.tmux.conf .tmux.conf
 ### NVIM
 
 ln -s /home/${USER}/.files/nvim /home/${USER}/.config/nvim
-sudo apt install xclip
 
-### ZSH
-sudo apt install fzf
-/\*Alternativt hvis apt er for gammel:
+### FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git /home/${USER}/.fzf
 /home/${USER}/.fzf/install
+
 \*/
+### ZSH
 ln -s /home/${USER}/.files/zsh/.zshrc /home/${USER}/.zshrc
-mkdir /home/${USER}/.config/bat
-mkdir /home/${USER}/.config/bat/themes
-ln -s /home/${USER}/.files/zsh/mocha.tmTheme /home/${USER}/.config/bat/themes/mocha.tmTheme

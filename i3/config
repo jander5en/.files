@@ -62,9 +62,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use picom to manage the visual border, container rounding opacity etc
-#exec --no-startup-id sh -c 'pgrep picom >/dev/null || picom --config ~/.config/picom/picom.conf'
-
 # set wallpaper with feh
 exec --no-startup-id feh --bg-scale ~/.files/i3/gnu.png
 
@@ -79,10 +76,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym Print exec --no-startup-id maim ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
 # Print Selection
 bindsym Shift+Print exec --no-startup-id maim -s ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
-# Print Active window
-bindsym $mod+Print exec --no-startup-id maim -i $(xdotool getactivewindow) ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
-# Print to clipboard
-bindsym Ctrl+Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -92,13 +85,13 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec /usr/bin/alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
