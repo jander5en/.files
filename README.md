@@ -27,7 +27,7 @@ echo "deb [signed-by=/usr/share/keyrings/sur5r-keyring.gpg] http://debian.sur5r.
 rm keyring.deb
 
 sudo apt update
-sudo apt install lightdm i3 i3status i3lock dmenu fonts-jetbrains-mono zsh
+sudo apt install lightdm i3 i3status i3lock dmenu fonts-jetbrains-mono zsh feh alacritty thunar maim
 
 rm -r /home/${USER}/.config/i3
 ln -s /home/${USER}/.files/i3 /home/${USER}/.config/i3
@@ -50,7 +50,7 @@ sudo apt install feh alacritty thunar maim xclip
 
 sudo reboot
 sudo apt remove nautilus
-sudo apt install feh picom alacritty thunar maim
+sudo apt install feh alacritty thunar maim
 
 ln -s /home/${USER}/.files/i3 /home/${USER}/.config/i3
 
