@@ -62,8 +62,14 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Example: Mod+Shift+L locks the screen
+#bindsym $mod+Shift+Ctrl+L exec --no-startup-id i3lock
+
+# mere fancy lockscreen med bilde. sett opp senere..
+bindsym $mod+Shift+Ctrl+L exec --no-startup-id i3lock -i $HOME/.files/i3/wallpapers/anime-totoro-samurai-pastell.png -t -e
+
 # set wallpaper with feh
-exec --no-startup-id feh --bg-scale ~/.files/i3/gnu.png
+exec --no-startup-id feh --bg-scale ~/.files/i3/wallpapers/gnu.png
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
