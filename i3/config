@@ -66,7 +66,7 @@ exec --no-startup-id nm-applet
 #bindsym $mod+Shift+Ctrl+L exec --no-startup-id i3lock
 
 # mere fancy lockscreen med bilde. sett opp senere..
-bindsym $mod+Shift+Ctrl+L exec --no-startup-id i3lock -i $HOME/.files/i3/wallpapers/anime-totoro-samurai-pastell.png -t -e
+bindsym $mod+Shift+Ctrl+L exec --no-startup-id i3lock -i $HOME/.files/i3/wallpapers/win11-desktop.png -t -e -u -p win
 
 # set wallpaper with feh
 exec --no-startup-id feh --bg-scale ~/.files/i3/wallpapers/gnu.png
