@@ -28,7 +28,7 @@ echo "deb [signed-by=/usr/share/keyrings/sur5r-keyring.gpg] http://debian.sur5r.
 rm keyring.deb
 
 sudo apt update -y 
-sudo apt install -y lightdm i3 i3status i3lock rofi
+sudo apt install -y lightdm i3 i3status i3lock rofi ufw fail2ban apparmor apparmor-utils
 rm -r /home/${USER}/.config/i3
 ln -s /home/${USER}/.files/i3 /home/${USER}/.config/i3
 ln -s /home/${USER}/.files/i3/gtk.css /home/${USER}/.config/gtk-3.0/gtk.css
@@ -40,10 +40,16 @@ sudo apt autoremove -y
 ## Install og setup for foretrukne apper
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.mozilla.firefox
-flatpak install flathub org.gimp.GIMP
-flatpak install flathub com.vivaldi.Vivaldi
-flatpak install flathub org.mozilla.Thunderbird
+flatpak install flathub org.mozilla.firefox -y
+flatpak install flathub org.gimp.GIMP -y
+flatpak install flathub com.vivaldi.Vivaldi -y
+flatpak install flathub org.mozilla.Thunderbird -y
+flatpak install flathub org.libreoffice.LibreOffice -y
+flatpak install flathub com.valvesoftware.Steam -y
+flatpak install flathub com.github.tchx84.Flatseal -y
+flatpak install flathub org.videolan.VLC -y
+flatpak install flathub com.spotify.Client -y
+flatpak install flathub io.podman_desktop.PodmanDesktop -y
 
 sudo apt remove -y nautilus
 
@@ -64,5 +70,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git /home/${USER}/.fzf
 rm /home/${USER}/.zshrc
 ln -s /home/${USER}/.files/zsh/.zshrc /home/${USER}/.zshrc
 chsh -s $(which zsh)
+
+## Security settings:
+
+
 
 sudo reboot
